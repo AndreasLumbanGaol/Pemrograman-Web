@@ -1,0 +1,17 @@
+.soal6{
+    background-color: rgb(186, 0, 0);
+    width: 240px;
+    padding: 8px;
+    font-weight: bold;
+    display: flex;
+    gap: 5px;
+}
+.info{
+    color: white;
+    font-size: 28px;
+}
+.system{
+    color: black;
+    font-size: 28px;
+    margin-top: 5px;
+}

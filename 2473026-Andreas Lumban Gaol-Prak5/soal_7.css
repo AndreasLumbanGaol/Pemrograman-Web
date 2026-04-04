@@ -1,0 +1,100 @@
+.soal7, header{
+    width: 640px;
+}
+.header{
+    display: flex;
+    width: 640px;
+    align-items: stretch;
+    height: 120px;
+    
+}
+.head1 {
+    width: 120px;
+    display: flex;
+}
+.head2 {
+    width: 340px; 
+    background-color: yellow;
+    display: flex;
+    padding: 0px 10px; 
+    align-items: center;
+}
+.head2 h1 {
+    font-size: 30px; 
+    color: #00008B;
+    margin: 0;
+    text-align: center;
+}
+.head3{
+    width: 160px;
+    display: flex;
+}
+.header img{
+    width: 100%;
+    height: 100%;
+}
+.content{
+    display: flex;
+    align-items: stretch;
+    padding-top: 2px;
+}
+.sidebar{
+    width: 120px;
+    background-image: url('src/bg_sea.png');
+    min-height: 500px;
+    color: white;
+    background-size: cover;
+}
+.sidebar ul{
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin-top: 10px;
+}
+.sidebar a{
+    color: white;
+}
+.main{
+    width: 500px;
+}
+.main p{
+    text-align: justify;
+}
+.main h2{
+    text-align: center;
+    color: #4169E1;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.article{
+    display: block;
+    overflow: auto;
+    margin-top: 0;
+    padding-top: 0;
+}
+.image-kanan {
+    width: 200px;
+    float: right;
+    margin-left: 10px;
+}   
+.image-kanan img {
+        height: 150px;
+}
+.caption{
+    background-color: #4169E1;
+    color: white;
+    text-align: center;
+}
+.text{
+    color: #4169E1;
+    display: inline;
+}
+.footer {
+    background-color: #4169E1;
+    color: #00008B; 
+    text-align: right;
+}
+.main p {
+    color: #4169E1;
+    margin-top: 0;
+}
