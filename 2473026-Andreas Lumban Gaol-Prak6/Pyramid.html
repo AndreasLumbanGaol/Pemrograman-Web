@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 2473026 - Andreas Lumban Gaol </title>
+        <link rel="stylesheet" href="Pyramid.css">
+    </head>
+    <body>
+        <div class="input">
+            Tinggi Piramida: <input type="text" id="tinggi">
+            <br>
+            <button onclick="piramida()">Proses</button> 
+        </div>
+        <br>
+        <div class="wrapper">
+        <div id="hasil" class="hasilpiramida">
+        </div>
+        </div>
+        <script>
+            function piramida(){
+                var t = document.getElementById("tinggi").value;
+
+                if(isNaN(t) || t === ""){
+                    alert("Masukkan angka yang valid!");
+                    return;
+                }
+                var tinggi = parseInt(t);
+                var html = "<table>";
+
+                for(var i = 1; i <= tinggi; i++){
+                    html += "<tr>";
+                    var totalkolom = tinggi * 2 - 1;
+                    var tengah = tinggi;
+                    
+                    for(var j = 1; j <= totalkolom; j++){
+                        if(j >= tengah - (i - 1) && j <= tengah + (i - 1)){
+                            html += "<td class='oren'></td>";
+                        } else {
+                            html += "<td></td>";
+                        }
+                    }
+                    html += "</tr>";    
+                }
+                html += "</table>";
+
+                var area = document.getElementById("hasil");
+                area.innerHTML = html;
+                area.style.textAlign = "center";
+            }
+        </script>
+    </body>
+</html>

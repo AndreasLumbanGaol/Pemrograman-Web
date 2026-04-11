@@ -1,0 +1,12 @@
+table, td{
+    border: 1px solid black;
+}
+td{
+    text-align: center;
+    padding: 10px;
+}
+body{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}

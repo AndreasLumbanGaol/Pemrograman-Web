@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Belajar JS Dasar</title>
+    <script type="text/javascript">
+        // Fungsi ini akan berjalan saat tombol diklik
+        function displaymessage() {
+            // 1. Mengambil nilai dari kotak input (ID: namaUser)
+            let inputan = document.getElementById("namaUser").value;
+
+            // 2. Cek apakah inputan kosong atau tidak
+            if (inputan === "") {
+                alert("Silakan ketik nama kamu dulu ya!");
+            } else {
+                // 3. Menampilkan hasil ke elemen paragraf (ID: hasil)
+                document.getElementById("hasil").innerHTML = "Halo, " + inputan + "! Selamat belajar JavaScript.";
+                
+                // Tambahan: memunculkan alert juga seperti contoh kamu tadi
+                alert("Data berhasil diproses!");
+            }
+        }
+</script>
+</head>
+<body>
+
+    <form onsubmit="event.preventDefault(); displaymessage();">
+        <label for="namaUser">Masukkan Nama Kamu:</label>
+        <input type="text" id="namaUser" placeholder="Contoh: Budi" required>
+        
+        <input type="button" value="Sapa Saya!" onclick="displaymessage()" />
+    </form>
+
+    <p id="hasil"></p>
+</body>
+</html>

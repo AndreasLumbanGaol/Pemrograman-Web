@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 2473026 - Andreas Lumban Gaol </title>
+    <link rel="stylesheet" href="Multiplication.css">
+</head>
+<body>
+    <div class="container">
+    <script>
+        var input;
+        while(true){
+            input = prompt("A number?");
+            if(input != null && input != "" && !isNaN(input)){
+                break;
+            }
+        }
+        var angka = parseInt(input);
+
+        document.write("<table>");
+        for (var i = 1; i<=angka; i++){
+            var hasil = i * angka;
+            document.write("<tr>");
+            document.write("<td>" + i + "</td>");
+            document.write("<td>" + "x" + "</td>");
+            document.write("<td>" + angka + "</td>");
+            document.write("<td>" + "=" + "</td>");
+            document.write("<td>" + hasil + "</td>");
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+    </div>
+</body>
+</html>

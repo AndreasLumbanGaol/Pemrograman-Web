@@ -1,0 +1,13 @@
+.oren{
+    background-color: orange;
+}
+table{
+    width: 800px;
+    height: 600px;
+}
+.wrapper{
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}

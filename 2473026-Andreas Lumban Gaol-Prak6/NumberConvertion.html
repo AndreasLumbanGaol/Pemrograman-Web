@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 2473026 - Andreas Lumban Gaol </title>
+    <link rel="stylesheet" href="NumberConvertion.css">
+</head>
+<body>
+    <div class="main">
+        <table>
+            <tr>
+                <td class="label">Input : </td>
+                <td><input type="text" id="inputNumber"></td>
+            </tr>
+            <tr>
+                <td class="label">Output : </td>
+                <td><input type="text" id="outputNumber" readonly></td>
+            </tr>
+            <tr>
+                <td class="areaoption" colspan="2">
+                    <select id="mode">
+                        <option value="dec-bin">Decimal-Biner</option>
+                        <option value="bin-dec">Biner-Decimal</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="areabutton">
+                    <button class="btn-proses" onclick="proses()">PROSES</button>
+                    <button class="btn-reset" onclick="reset()">RESET</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function proses(){
+            var input =  document.getElementById("inputNumber").value;
+            var mode = document.getElementById("mode").value;
+            var output = "";
+
+            if(mode === "dec-bin"){
+                var decimal = parseInt(input);
+                if(isNaN(decimal) || decimal < 0 || decimal > 255){
+                    alert("Input harus angka 0 s/d 255!");
+                    return;
+                }
+                if(decimal === 0){
+                    output = "0";
+                }else{while(decimal > 0){
+                    output = (decimal % 2) + output;
+                    decimal = Math.floor(decimal / 2);
+                }
+            }
+                while(output.length < 8){
+                    output = "0" + output;
+                }
+            }else{
+                if(!/^[01]+$/.test(input) || input.length != 8){
+                    alert("Input biner harus berupa 0 atau 1 sebanyak 8 digit!");
+                    return;
+                }
+                var decimal = 0;
+                var pangkat = 0;
+                for(var i = input.length - 1; i >= 0; i--){
+                    if(input[i] === "1"){
+                        decimal += Math.pow(2, pangkat);
+                  }
+                    pangkat++;
+                }
+                output = decimal;
+            }
+            document.getElementById("outputNumber").value = output;
+        }
+        function reset(){
+            document.getElementById("inputNumber").value = "";
+            document.getElementById("outputNumber").value = "";
+            document.getElementById("mode").value = "dec-bin";
+        }
+    </script>
+</body> 
+</html>
