@@ -1,0 +1,25 @@
+.row{
+    display: flex;
+    margin-bottom: 5px;
+    align-items: flex-start;
+    gap: 5px;
+}
+.label{
+    width: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+.count{
+    text-align: right;
+    margin-top: -8.5px;
+}
+#count{
+    width: 50px;
+    text-align: right;
+}
+.container{
+    width: 245px;
+}
+textarea{
+    height: 50px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 2473026 - Andreas Lumban Gaol </title>
+        <link rel="stylesheet" href="soal_1.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="label">Judul<span>:</span></div>
+                <div><input type="text" id="judul"></div>
+            </div>
+            <div class="row">
+                <div class="label">Deskripsi<span>:</span></div>
+                <div><textarea id="deskripsi" onkeyup="call_onKeyPress(this)"></textarea ></div>
+            </div>
+            <div class="count">
+                <input type="text" value="0/256" id="count" readonly>
+            </div>
+        </div>
+        <script>
+            function call_onKeyPress(ob){
+                var obval= ob.value;
+                var limit = 256;
+                if(obval.length > limit){
+                    ob.value = obval.substring(0, limit);
+                    obval = ob.value;
+                }
+                document.getElementById("count").value = obval.length + "/" + limit;
+            }
+        </script>
+    </body>
+</html>

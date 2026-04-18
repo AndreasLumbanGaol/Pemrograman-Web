@@ -1,0 +1,18 @@
+.container {
+    width: 210px;
+    border : 1px solid black;
+}
+.row {
+    display: flex;
+    align-items: center;
+    margin: 5px; 
+}
+.label {
+    width: 40px;
+}
+input {
+    width: 150px;
+}
+button, select {
+    margin : 5px;
+}

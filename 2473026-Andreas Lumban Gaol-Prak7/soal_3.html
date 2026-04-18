@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 2473026 - Andreas Lumban Gaol </title>
+        <link rel="stylesheet" href="soal_3.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="label">Data</div>
+                <div><input type="text" id="input"></div>
+            </div>
+            <div>
+                <button onclick="tambah()">Add</button>
+                <select id="operasi" onchange="proses()">
+                    <option value="">Pilih Operasi</option>
+                    <option value="display">Display</option>
+                    <option value="count">Count</option>
+                    <option value="sum">Sum</option>
+                    <option value="avg">Average</option>
+                    <option value="max">Max</option>
+                    <option value="min">Min</option>
+                    <option value="ganjil">Ganjil</option>
+                    <option value="genap">Genap</option>
+                    <option value="hapus">Hapus</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="label">Hasil</div>
+                <div><input type="text" id="hasil" readonly>
+            </div>
+        </div>
+
+        <script>
+            let arr = [];
+            function tambah(){
+                let input = document.getElementById("input");
+                let nilai = parseInt(input.value);
+                if(!isNaN(nilai)){
+                    arr.push(nilai);
+                    input.value = "";
+                }else{
+                    alert("Masukkan angka!")
+                }
+            }
+
+            function proses(){
+                let op = document.getElementById("operasi").value;
+                let hasil = document.getElementById("hasil");
+
+                if(op == "display"){
+                    hasil.value = arr.join(", ");
+                }else if(op == "count"){
+                    hasil.value = arr.length;
+                }else if(op == "sum"){
+                    let total = 0;
+                    for(let i = 0; i < arr.length; i++){
+                        total += arr[i];
+                    }
+                    hasil.value = total;
+                }else if(op == "avg"){
+                    let total = 0;
+                    for(let i = 0; i < arr.length; i++){
+                        total += arr[i];
+                    }
+                    hasil.value = arr.length ? total/arr.length : 0;
+                }else if(op == "max"){
+                    let max = arr[0];
+                    for(let i=1;i<arr.length;i++){
+                        if(arr[i] > max){
+                            max = arr[i];
+                        }
+                    }
+                    hasil.value = max;
+                }else if(op == "min"){
+                    let min = arr[0];
+                    for(let i=1;i<arr.length;i++){
+                        if(arr[i] < min){
+                            min = arr[i];
+                        }
+                    }
+                    hasil.value = min;
+                }else if(op == "ganjil"){
+                    let hasilArr = [];
+                    for(let i=0;i<arr.length;i++){
+                        if(arr[i] % 2 != 0){
+                            hasilArr.push(arr[i]);
+                        }
+                    }
+                    hasil.value = hasilArr.join(", ");
+                }else if(op == "genap"){
+                    let hasilArr = [];
+                    for(let i=0;i<arr.length;i++){
+                        if(arr[i] % 2 == 0){
+                            hasilArr.push(arr[i]);
+                        }
+                    }
+                    hasil.value = hasilArr.join(", ");
+                }else if(op == "hapus"){
+                    arr = [];
+                    hasil.value = "";
+                }
+            }
+        </script>
+    </body>
+</html>
