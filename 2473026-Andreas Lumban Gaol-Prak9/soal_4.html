@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 2473026 - Andreas Lumban Gaol </title>
+        <script src="jquery-4.0.0.min.js"></script>
+        <style>
+            table{
+                margin: auto;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $(".header").click(function(){
+                    var flag = $(this).attr("checked");
+
+                    if(!flag){
+                        $("input:checkbox.body").attr("checked", "checked").prop("checked", true);
+                        $(this).attr("checked", "checked");
+                    } else {
+                        $("input:checkbox.body").removeAttr("checked").prop("checked", false);
+                        $(this).removeAttr("checked");
+                    }
+
+                    var terpilih = $("input:checkbox.body[checked]").length;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <table border="1" cellpadding="0" cellspacing="0"> 
+        <tr> 
+        <td width="50" align="center"> 
+        <input class="header" type="checkbox"/><br/> 
+        <hr/> 
+        <input class="body" type="checkbox"/><br/> 
+        <input class="body" type="checkbox"/><br/> 
+        <input class="body" type="checkbox"/><br/> 
+        <input class="body" type="checkbox"/><br/> 
+        </td> 
+        </tr> 
+        </table> 
+    </body>
+</html>

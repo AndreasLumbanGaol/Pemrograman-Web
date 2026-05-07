@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 2473026 - Andreas Lumban Gaol </title>
+        <script src="jquery-4.0.0.min.js"></script>
+        <style>
+            .container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 350px;
+            }
+            .name-item {
+                margin-bottom: 5px;
+            }
+            .highlight {
+                text-decoration: underline;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("#btnAdd").click(function(){
+                    var nama = $("#txtinput").val();
+                    if(nama !== ""){
+                        $("<div class='name-item'>" + nama + "</div>").appendTo("#namelist");
+                        $("#txtinput").val("");
+                    }
+                });
+                $("#btnSearch").click(function(){
+                    var cari = $("#txtinput").val().toLowerCase();
+                    $(".name-item").removeClass("highlight");
+
+                    $(".name-item").each(function(){
+                        var nama = $(this).text().toLowerCase();
+
+                        if(nama.includes(cari)){
+                            $(this).addClass("highlight");
+                    }
+                    });
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <input type="text" id="txtinput">
+            <button id="btnAdd">Add</button>
+            <button id="btnSearch">Search</button>
+
+            <div id="namelist" style="margin-top: 15px;">
+                <div class="name-item">John Resig</div>
+                <div class="name-item">George Martin</div>
+                <div class="name-item">Malcom John Sinclair</div>
+                <div class="name-item">J. Ohn</div>
+            </div>
+        </div>
+    </body>
+</html>

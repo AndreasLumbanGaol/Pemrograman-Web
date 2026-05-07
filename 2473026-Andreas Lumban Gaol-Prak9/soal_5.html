@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 2473026 - Andreas Lumban Gaol </title>
+        <script src="jquery-4.0.0.min.js"></script>
+        <style>
+            .container {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            }
+            .list-items {
+                margin-top: 15px;
+            }
+            .items {
+                margin-bottom: 5px;
+            }
+            .highlight-red {
+                color: red;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("#searchBox").keyup(function(){
+                    var keyword = $(this).val();
+                    $(".items").removeClass("highlight-red");
+                    if(keyword !== ""){
+                        $(".items:contains('" + keyword + "')").addClass("highlight-red");
+                    }
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <input type="text" id="searchBox">
+            <div class="list-items">
+                <div class="items">Sun Microsystem</div>
+                <div class="items">Apache Software Foundation</div>
+                <div class="items">Oracle Coorporation</div>
+                <div class="items">International Business Machines</div>
+                <div class="items">Microsoft Coorporation</div>
+                <div class="items">Apple Inc</div>
+                <div class="items">Sap Ag</div>
+                <div class="items">Accenture</div>
+                <div class="items">Computer Sciences Coorporation</div>
+                <div class="items">Google</div>
+                <div class="items">Softbank</div>
+                <div class="items">Yahoo</div>
+            </div>
+        </div>
+    </body>
+</html>

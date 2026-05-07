@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Picker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .color-box {
+            width: 100%;
+            height: 120px;
+            background: #000000;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        input[type="color"] {
+            width: 60px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="text"] {
+            width: 120px;
+            height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Color Picker</h2>
+
+    <div class="color-box" id="colorBox"></div>
+
+    <div class="row">
+        <label>Pilih Warna :</label>
+        <input type="color" id="colorPicker" value="#000000">
+    </div>
+
+    <div class="row">
+        <label>HEX :</label>
+        <input type="text" id="hexInput" value="#000000">
+    </div>
+</div>
+
+<script>
+    const colorPicker = document.getElementById("colorPicker");
+    const hexInput = document.getElementById("hexInput");
+    const colorBox = document.getElementById("colorBox");
+
+    // Saat pilih warna dari input color
+    colorPicker.addEventListener("input", function () {
+        const color = colorPicker.value;
+        colorBox.style.backgroundColor = color;
+        hexInput.value = color;
+    });
+
+    // Saat input HEX manual
+    hexInput.addEventListener("input", function () {
+        let hex = hexInput.value;
+
+        // Validasi sederhana HEX
+        if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+            colorBox.style.backgroundColor = hex;
+            colorPicker.value = hex;
+        }
+    });
+</script>
+
+</body>
+</html>

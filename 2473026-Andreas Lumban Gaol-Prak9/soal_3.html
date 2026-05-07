@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 2473026 - Andreas Lumban Gaol </title>
+        <script src="jquery-4.0.0.min.js"></script>
+        <style>
+            div.Box { 
+            width: 40px; 
+            height: 40px; 
+            margin: 5px; 
+            float: left;
+            border: 2px blue solid; 
+            text-align: center; 
+        }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $(".Box").click(function(){
+                    $(this).css("background-color", "red");
+                    $(this).attr("id", "stop-here");
+                });
+                $("button").click(function () {
+                $(".Box").each(function (index, dom) {
+                    if ($(dom).attr("id") === "stop-here") {
+                        return false; 
+                    }
+                    $(dom).css("background-color", "yellow");
+                });
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <button>Change colors</button>
+        <div class="A"></div>
+        <div class="Box"></div>
+        <div class="Box"></div>
+        <div class="Box"></div>
+        <div class="Box"></div>
+        <div class="Box"></div>
+        <div class="Box"></div>
+        <div class="Box"></div>
+        <div class="Box"></div>
+    </body>
+</html>

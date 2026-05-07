@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote AC Panamasonic</title>
+    <style>
+        body {
+            background-color: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Frame luar remote */
+        .remote-outer {
+            width: 250px;
+            height: 500px;
+            background-color: #f8f8f8;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+            border: 2px solid #ccc;
+        }
+
+        /* Body remote putih */
+        .remote-inner {
+            background-color: #ffffff;
+            height: 100%;
+            width: 100%;
+            border-radius: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Layar LCD */
+        .screen-frame {
+            background-color: black;
+            padding: 5px;
+            border-radius: 5px;
+            width: 90%;
+            margin-bottom: 15px;
+        }
+
+        .lcd {
+            background-color: #cfd8c3;
+            height: 80px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 10px;
+            position: relative;
+        }
+
+        .temp-display {
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        /* Pengaturan Tabel Tombol */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 5px;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            padding: 5px 2px;
+            font-size: 8px;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* Warna spesifik tombol */
+        .btn-mode { background-color: #af4c4c; color: white; }
+        .btn-power { background-color: orange; color: white; }
+        .btn-economy { background-color: #4caf50; color: white; }
+        .btn-white { background-color: white; color: black; }
+        
+        /* Area Timer */
+        .timer-box {
+            border: 1px solid #bdbdbd;
+            border-radius: 5px;
+            margin-top: 5px;
+            padding: 5px;
+        }
+
+        .brand {
+            margin-top: auto;
+            color: darkblue;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-family: "Times New Roman", serif;
+        }
+
+        .small-text { font-size: 7px; line-height: 1; }
+    </style>
+</head>
+<body>
+
+<div class="remote-outer">
+    <div class="remote-inner">
+        <div class="screen-frame">
+            <div class="lcd">
+                <div style="text-align: left;">
+                    AUTO<br>COOL<br>DRY
+                </div>
+                <div class="temp-display">
+                    &#x25fc; 16&#x2103;
+                    <div style="font-size: 10px; text-align: center;">AUTO</div>
+                </div>
+                <div style="text-align: right;">
+                    FAN<br>SPEED &#x25fc;&#x25fc;&#x25fc;<br><br>AIR<br>SWING
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <td><button class="btn-mode">Mode</button></td>
+                <td><button class="btn-power">Off/On</button></td>
+                <td><button class="btn-economy">Economy</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn-white">Powerful</button></td>
+                <td><button class="btn-white">&#x25b2;</button></td>
+                <td><button class="btn-white">Fan Speed</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn-white">Quiet</button></td>
+                <td style="font-size: 8px;">TEMP</td>
+                <td><button class="btn-white">Air Swing</button></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="btn-white">&#x25bc;</button></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="timer-box">
+            <div class="small-text" style="text-align: left; margin-left: 5px;">TIMER</div>
+            <table>
+                <tr>
+                    <td><button class="btn-white">On</button></td>
+                    <td><button class="btn-white">&#x25b2;</button></td>
+                    <td><button class="btn-white">Set</button></td>
+                </tr>
+                <tr>
+                    <td><button class="btn-white">Off</button></td>
+                    <td><button class="btn-white">&#x25bc;</button></td>
+                    <td><button class="btn-white">Cancel</button></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="brand">PANAMASONIC</div>
+    </div>
+</div>
+
+</body>
+</html>
