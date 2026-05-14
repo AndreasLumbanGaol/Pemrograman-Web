@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473026 - Andreas Lumban Gaol</title>
+    <script src="jquery.js"></script>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        table{
+            width: 700px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            $("#look").click(function(){
+                $.get("json soal 2/SIJson.txt", function(data){
+                        var cleanData = data.trim().replace(/;$/, '');
+                        var jsonData = JSON.parse(cleanData);
+
+                        var isi = "";
+
+                        isi += "<tr>";
+                        isi += "<td><a href='" + jsonData.link + "' target='_blank'>" + jsonData.title + "</a></td>";
+                        isi += "</tr>";
+
+                        isi += "<tr>";
+                        isi += "<td>";
+
+                        $.each(jsonData.items, function(i, val){
+                            isi += "<b><a href='" + val.link + "' target='_blank'>" + val.title + "</a></b><br>";
+                            isi += "By: " + val.author + "/" + val.published + "<br><br>";
+                            isi += val.description + "<br><br>";
+                            isi += "Universitas: <a href='" + val.universitas.m + "' target='_blank'>Click Here</a><br>";
+                            isi += "Tag(s): " + val.tags + "<br><br>";
+                        });
+
+                        isi += "</td>";
+                        isi += "</tr>";
+
+                        isi += "<tr>";
+                        isi += "<td>&copy;" + jsonData.generator + "</td>";
+                        isi += "</tr>";
+
+                        $("#isi").html(isi);
+                    
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <table>
+            <tbody id="isi">
+                <tr>
+                    <td><b>Title</b></td>
+                </tr>
+                <tr>
+                    <td><b>Content</b></td>\
+                </tr>
+                <tr>
+                    <td><b>Generator</b></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br><br>
+
+        <button id="look">Look</button>
+
+    </div>
+
+</body>
+</html>
