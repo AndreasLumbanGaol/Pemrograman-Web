@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 2473026 - Andreas Lumban Gaol </title>
+        <script src="jquery.js"></script>
+        <style>
+            .choice{
+                border: 1px solid black;
+                width: 300px;
+                height: 100px;
+                padding: 10px;
+            }
+            h3{
+                width: 500px;
+            }
+            table { 
+                border-collapse: 
+                collapse; 
+                margin-top: 15px; 
+            }
+            th { 
+                background-color: black; 
+                color: white; 
+                padding: 10px; 
+            }
+            td { 
+                padding: 8px; 
+                border: 1px solid #ccc; 
+                text-align: center; 
+            }
+        </style>                                                
+        <script>
+            $(document).ready(function(){
+                $('#search').click(function(){
+                    var pilih = $(":radio[name='kelas']:checked").val();
+                    var url = "";
+
+                    if(pilih === "all"){
+                        url = "json soal 1/nilai.js";
+                    }else if(pilih === "A"){
+                        url = "json soal 1/nilaiA.js";
+                    }else{
+                        url = "json soal 1/nilaiB.js";
+                    }
+
+                    $.getJSON(url, function(response){
+                        var baris ="";
+                        $.each(response.nilai, function(key, val){
+                            baris += "<tr>";
+                            baris += "<td>" + val.nrp + "</td>";
+                            baris += "<td>" + val.nama + "</td>";
+                            baris += "<td>" + val.kelas + "</td>";
+                            baris += "<td>" + (val.nilaiakhir || val.nilaiAkhir) + "</td>"; 
+                            baris += "</tr>";
+                        });
+
+                        $("#tabelMahasiswa tbody").html(baris);
+                        $("#tabelMahasiswa").show();
+
+                        $("#tabelMahasiswa tbody tr:odd").css("background-color", "#CCFFAA");
+                        $("#tabelMahasiswa tbody tr:even").css("background-color", "#FFFFCC");
+                        
+
+                    })
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h3>Selamat! Berikut adalah Daftar Mahasiswa yang mendapat Nilai A Pemrogramana Web SI Tahun Ajaran 2023/2024</h3>
+
+            <div class="choice">
+                <input type="radio" name="kelas" value="all" checked>All<br>
+                <input type="radio" name="kelas" value="A">Kelas A<br>
+                <input type="radio" name="kelas" value="B">Kelas B<br>
+                <button id="search">Search</button>
+            </div>
+            <table id="tabelMahasiswa">
+                <thead>
+                    <tr>
+                        <th>NRP</th>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>Nilai Akhir</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+            </table>
+        </div>
+    </body>
+</html>
